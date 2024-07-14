@@ -1,4 +1,4 @@
-# Mari kita jelaskan kode di atas secara lengkap dan mendetail:
+# Mari kita jelaskan kode pada file app.py di atas secara lengkap dan mendetail :
 
 ### Impor Modul dan Konfigurasi Awal
 
