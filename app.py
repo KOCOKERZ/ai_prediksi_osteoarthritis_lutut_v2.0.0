@@ -92,6 +92,7 @@ if selected == "Predict":
 if selected == "About":
     st.title("Tentang Pembuat AI")
     st.write("""
-        Aplikasi ini dibuat oleh Fitrah Ali Akbar Setiawan (https://github.com/KOCOKERZ) yang memiliki minat besar dalam pengembangan AI. Anda dapat melihat proyek-proyek lainnya di GitHub saya.
+        Aplikasi ini dibuat oleh Fitrah Ali Akbar Setiawan (https://github.com/KOCOKERZ) dan Megah Juliardi Sondara Wicaksana (https://github.com/juliardimegah) yang memiliki minat besar dalam pengembangan AI. Anda dapat melihat proyek-proyek lainnya di GitHub saya.
     """)
     st.markdown("[![GitHub](https://img.shields.io/badge/GitHub-000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/KOCOKERZ)")
+    st.markdown("[![GitHub](https://img.shields.io/badge/GitHub-000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/juliardimegah)")
