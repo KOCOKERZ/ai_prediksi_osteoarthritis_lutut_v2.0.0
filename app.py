@@ -33,11 +33,24 @@ with st.sidebar:
 if selected == "Home":
     st.title("Selamat Datang di Prediksi Osteoarthritis pada Lutut")
     st.write("""
-        Osteoarthritis adalah kondisi kronis yang menyebabkan kerusakan pada sendi lutut, yang dapat menyebabkan rasa sakit dan penurunan fungsi. Aplikasi ini menggunakan AI untuk menganalisis gambar X-ray lutut dan memprediksi apakah ada tanda-tanda osteoarthritis.
+
+        Osteoarthritis adalah kondisi yang menyebabkan kerusakan pada sendi lutut, yang dapat menyebabkan rasa sakit dan penurunan fungsi. Penyakit ini menyebabkan tulang rawan yang melindungi ujung-ujung tulang di sendi menjadi rusak, yang dapat menyebabkan rasa sakit, bengkak, dan keterbatasan gerak.
+
+        **Penyebab:**
+        Penyebab osteoarthritis meliputi penuaan, obesitas, cedera sendi, dan faktor genetik. Aktivitas fisik yang berlebihan atau pekerjaan yang memberi tekanan berulang pada sendi juga dapat berkontribusi.
+
+        **Gejala:**
+        Gejala utama osteoarthritis adalah nyeri sendi dan kekakuan, terutama setelah beristirahat atau tidak bergerak. Gejala lainnya termasuk bengkak, kehilangan fleksibilitas, dan suara 'klik' atau 'retak' saat menggerakkan sendi.
+
+        **Pengobatan:**
+        Pengobatan osteoarthritis meliputi kombinasi dari perubahan gaya hidup, obat-obatan, terapi fisik, dan dalam beberapa kasus, pembedahan. Tujuannya adalah untuk mengurangi rasa sakit, meningkatkan fungsi sendi, dan memperlambat perkembangan penyakit.
+
+        **Aplikasi ini menggunakan AI untuk menganalisis gambar X-ray lutut dan memprediksi apakah ada tanda-tanda osteoarthritis.**
 
         Cara penggunaan:
         1. Unggah gambar X-ray lutut Anda pada menu "Predict".
         2. AI akan menganalisis gambar dan memberikan prediksi mengenai kondisi lutut Anda.
+
     """)
 
 if selected == "Predict":
@@ -62,8 +75,8 @@ if selected == "Predict":
 
     categories = ['Normal', 'Osteoarthritis']
     descriptions = {
-        'Normal': 'Lutut tampak normal tanpa tanda-tanda osteoartritis.',
-        'Osteoarthritis': 'Ada tanda-tanda parah osteoartritis, segera periksakan diri anda ke dokter untuk penanganan lebih lanjut.'
+        'Normal': 'Selamat! Anda tidak memiliki tanda-tanda osteoarthritis. Lutut anda tampak normal tanpa tanda-tanda osteoartritis. Untuk menjaga kesehatan lutut Anda, pastikan untuk berolahraga secara teratur, menjaga berat badan ideal, dan menghindari cedera pada lutut.',
+        'Osteoarthritis': 'Ada tanda-tanda osteoartritis. Disarankan untuk menghindari aktivitas yang membebani lutut, mengonsumsi makanan yang baik untuk kesehatan sendi, melakukan fisioterapi sesuai anjuran dokter, dan  segera periksakan diri anda ke dokter untuk penanganan lebih lanjut'
     }
 
     file = st.file_uploader("Unggah gambar X-ray lutut, dan AI akan memprediksi kondisinya", type=["jpg", "png", "jpeg"])
@@ -82,17 +95,33 @@ if selected == "Predict":
 
         class_names = ['Normal', 'Osteoarthritis']
 
-        string = "Prediksi : " + class_names[np.argmax(predictions)]
-        if class_names[np.argmax(predictions)] == 'Normal':
+        prediction_text = "Prediksi : " + class_names[predicted_class]
+        st.sidebar.write(prediction_text)
+
+        if class_names[predicted_class] == 'Normal':
             st.balloons()
-            st.sidebar.success(string)
-        elif class_names[np.argmax(predictions)] == 'Osteoarthritis':
-            st.sidebar.warning(string)
+            st.sidebar.success(prediction_text)
+            st.sidebar.info(descriptions['Normal'])
+        elif class_names[predicted_class] == 'Osteoarthritis':
+            st.sidebar.warning(prediction_text)
+            st.sidebar.error(descriptions['Osteoarthritis'])
 
 if selected == "About":
     st.title("Tentang Pembuat AI")
     st.write("""
-        Aplikasi ini dibuat oleh Fitrah Ali Akbar Setiawan (https://github.com/KOCOKERZ) dan Megah Juliardi Sondara Wicaksana (https://github.com/juliardimegah) yang memiliki minat besar dalam pengembangan AI. Anda dapat melihat proyek-proyek lainnya di GitHub kami.
+        Aplikasi ini dibuat oleh mahasiswa D4 jurusan Teknik Informatika Universitas Logistik dan Bisnis Internasional. Berikut merupakan mahasiswa yang terlibat dalam pengembangan aplikasi ini:
     """)
-    st.markdown("Github Fitrah Ali Akbar Setiawan [![GitHub](https://img.shields.io/badge/GitHub-000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/KOCOKERZ)")
-    st.markdown("Github Megah Juliardi Sondara Wicaksana [![GitHub](https://img.shields.io/badge/GitHub-000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/juliardimegah)")
+
+    def display_image_with_aspect_ratio(image_path, width, height):
+        image = Image.open(image_path)
+        image = ImageOps.fit(image, (width, height), Image.Resampling.LANCZOS)
+        st.image(image, width=200)
+
+    st.markdown("**1. Fitrah Ali Akbar Setiawan**")
+    display_image_with_aspect_ratio("img/akbar.png", 300, 400)
+    st.markdown("[![GitHub](https://img.shields.io/badge/GitHub-000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/KOCOKERZ)")
+
+    st.markdown("**2. Megah Juliardi Sondara Wicaksana**")
+    display_image_with_aspect_ratio("img/megah.png", 300, 400)
+    st.markdown("[![GitHub](https://img.shields.io/badge/GitHub-000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/juliardimegah)")
+
