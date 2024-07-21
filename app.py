@@ -36,13 +36,13 @@ if selected == "Home":
 
         Osteoarthritis adalah kondisi yang menyebabkan kerusakan pada sendi lutut, yang dapat menyebabkan rasa sakit dan penurunan fungsi. Penyakit ini menyebabkan tulang rawan yang melindungi ujung-ujung tulang di sendi menjadi rusak, yang dapat menyebabkan rasa sakit, bengkak, dan keterbatasan gerak.
 
-        **Penyebab:**
+        - **Penyebab:**
         Penyebab osteoarthritis meliputi penuaan, obesitas, cedera sendi, dan faktor genetik. Aktivitas fisik yang berlebihan atau pekerjaan yang memberi tekanan berulang pada sendi juga dapat berkontribusi.
 
-        **Gejala:**
+        - **Gejala:**
         Gejala utama osteoarthritis adalah nyeri sendi dan kekakuan, terutama setelah beristirahat atau tidak bergerak. Gejala lainnya termasuk bengkak, kehilangan fleksibilitas, dan suara 'klik' atau 'retak' saat menggerakkan sendi.
 
-        **Pengobatan:**
+        - **Pengobatan:**
         Pengobatan osteoarthritis meliputi kombinasi dari perubahan gaya hidup, obat-obatan, terapi fisik, dan dalam beberapa kasus, pembedahan. Tujuannya adalah untuk mengurangi rasa sakit, meningkatkan fungsi sendi, dan memperlambat perkembangan penyakit.
 
         **Aplikasi ini menggunakan AI untuk menganalisis gambar X-ray lutut dan memprediksi apakah ada tanda-tanda osteoarthritis.**
